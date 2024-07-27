@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
             if (frequency != null && frequency in 1..20000) {
                 frequencyTextView.text = "Current Frequency: $frequency Hz"
                 playFrequency(frequency)
-                frequencyEditText.text.clear() // Clear the text field
             } else {
                 Log.d(TAG, "Invalid frequency input")
                 frequencyTextView.text = "Invalid frequency. Enter a value between 1 and 20000 Hz."
@@ -44,9 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         stopButton.setOnClickListener {
             stopFrequency()
-            frequencyTextView.text = "Stopped"
         }
-        frequencyTextView.text = "Enter a frequency between 1Hz to 20000Hz"
     }
 
     private fun playFrequency(frequency: Int) {

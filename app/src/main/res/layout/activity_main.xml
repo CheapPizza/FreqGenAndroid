@@ -9,17 +9,16 @@
         android:id="@+id/frequencyEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:hint="Enter Frequency (Hz)"
-        android:inputType="number"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:inputType="number" />
 
     <Button
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play"
-        android:layout_below="@id/frequencyEditText"
+        android:layout_above="@id/frequencyEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
@@ -28,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stop"
-        android:layout_below="@id/playButton"
+        android:layout_above="@id/playButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
@@ -36,8 +35,8 @@
         android:id="@+id/frequencyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Frequency: 440 Hz"
-        android:layout_below="@id/stopButton"
+        android:text="Enter a frequency to start"
+        android:layout_above="@id/stopButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 </RelativeLayout>
