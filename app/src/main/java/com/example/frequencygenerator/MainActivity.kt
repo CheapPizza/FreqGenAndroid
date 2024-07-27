@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var frequencyTextView: TextView
     private lateinit var playButton: Button
     private lateinit var stopButton: Button
+    private lateinit var resetButton: Button
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
     private val TAG = "FrequencyGenerator"
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         frequencyTextView = findViewById(R.id.frequencyTextView)
         playButton = findViewById(R.id.playButton)
         stopButton = findViewById(R.id.stopButton)
+        resetButton = findViewById(R.id.resetButton)
 
         playButton.setOnClickListener {
             val frequency = frequencyEditText.text.toString().toIntOrNull()
@@ -43,6 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         stopButton.setOnClickListener {
             stopFrequency()
+        }
+
+        resetButton.setOnClickListener {
+            frequencyEditText.text.clear()
         }
     }
 
