@@ -8,44 +8,49 @@
     <EditText
         android:id="@+id/frequencyEditText"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="66dp"
         android:layout_centerInParent="true"
         android:hint="Enter Frequency (Hz)"
-        android:inputType="number" />
+        android:inputType="number"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
         android:layout_above="@id/frequencyEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"
+        android:text="Play"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/stopButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop"
         android:layout_above="@id/playButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"
+        android:text="Stop"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear"
         android:layout_below="@id/frequencyEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="5dp"
+        android:text="Clear"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/frequencyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter a frequency to start"
         android:layout_above="@id/stopButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:text="Enter a frequency to start"
+        android:visibility="visible" />
 </RelativeLayout>
