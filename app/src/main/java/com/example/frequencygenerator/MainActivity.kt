@@ -17,9 +17,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var playButton: Button
     private lateinit var stopButton: Button
     private lateinit var resetButton: Button
+    private var currentFrequency = 0
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
     private var maxFrequency = 20000
+    private val sampleRate = 44100
+    private val durationInSeconds = 60
+
+    private val numSamples = sampleRate * durationInSeconds
+    private val samples = ShortArray(numSamples)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +41,8 @@ class MainActivity : AppCompatActivity() {
             val frequency = frequencyEditText.text.toString().toIntOrNull()
             if (frequency != null && frequency in 1..maxFrequency) {
                 frequencyTextView.text = "Current Frequency: $frequency Hz"
-                playFrequency(frequency)
+                updateSample(frequency)
+                playFrequency()
             } else {
                 frequencyTextView.text = "Enter a frequency between 1 and 20000 Hz."
             }
@@ -53,19 +60,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun playFrequency(frequency: Int) {
+    private fun updateSample(frequency: Int) {
+        if (frequency != currentFrequency) {
+            // Create sine wave
+            for (i in samples.indices) {
+                samples[i] = (sin(2.0 * Math.PI * frequency * i / sampleRate) * Short.MAX_VALUE).toInt().toShort()
+            }
+        }
+        currentFrequency = frequency
+    }
+
+    private fun playFrequency() {
         if (isPlaying) {
             audioTrack?.stop()
             audioTrack?.release()
-        }
-
-        val sampleRate = 44100
-        val durationInSeconds = 60
-        val numSamples = sampleRate * durationInSeconds
-        val samples = ShortArray(numSamples)
-
-        for (i in samples.indices) {
-            samples[i] = (sin(2.0 * Math.PI * frequency * i / sampleRate) * Short.MAX_VALUE).toInt().toShort()
         }
 
         audioTrack = AudioTrack.Builder()
