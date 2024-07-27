@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         seekBar = findViewById(R.id.seekBar)
 
         seekBar.max = 20000
-        seekBar.progress = 200 // Set default to 440 Hz
+        seekBar.progress = 200 // Set initial frequency
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
