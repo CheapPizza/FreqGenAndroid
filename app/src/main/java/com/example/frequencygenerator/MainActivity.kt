@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 frequencyTextView.text = "Current Frequency: $frequency Hz"
                 playFrequency(frequency)
             } else {
-                frequencyTextView.text = "Invalid frequency. Enter a value between 1 and 20000 Hz."
+                frequencyTextView.text = "Enter a frequency between 1 and 20000 Hz."
             }
         }
 
