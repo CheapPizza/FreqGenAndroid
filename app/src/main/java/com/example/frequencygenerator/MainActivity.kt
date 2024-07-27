@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
 
         resetButton.setOnClickListener {
             frequencyEditText.text.clear()
+            if (!isPlaying) {
+                frequencyTextView.text = "Enter a frequency"
+            }
         }
     }
 
