@@ -4,6 +4,11 @@
 This app creates a sine wave at any audible frequency.  
 Designed to be an ad free open source alternative to frequency generator apps.  
 
+Tested with an oscilloscope to produce accurate output.  
+Assumes 44.1kHz sample rate.  
+Note that the sound is played for 60 seconds at a time.  
+Changing the duration value increases the audio buffer lenght and will cause the app to crash if set too high.  
+
 This is my first android app so expect spaghetti code.  
 
 ## Features
@@ -35,4 +40,5 @@ How to install the program on your android device using Android studio:
 7. Allow debugging on phone if prompted  
 
 8. Disconnect phone from PC and the app should remain on your device
+
 
