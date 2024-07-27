@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var frequencyEditText: EditText
     private lateinit var frequencyTextView: TextView
     private lateinit var playButton: Button
+    private lateinit var stopButton: Button
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
     private val TAG = "FrequencyGenerator"
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         frequencyEditText = findViewById(R.id.frequencyEditText)
         frequencyTextView = findViewById(R.id.frequencyTextView)
         playButton = findViewById(R.id.playButton)
+        stopButton = findViewById(R.id.stopButton)
 
         playButton.setOnClickListener {
             val frequency = frequencyEditText.text.toString().toIntOrNull()
@@ -40,8 +42,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Start playing the initial frequency
-        playFrequency(440) // Default to 440 Hz
+        stopButton.setOnClickListener {
+            stopFrequency()
+            frequencyTextView.text = "Stopped"
+        }
+        frequencyTextView.text = "Enter a frequency between 1Hz to 20000Hz"
     }
 
     private fun playFrequency(frequency: Int) {
@@ -85,9 +90,16 @@ class MainActivity : AppCompatActivity() {
         isPlaying = true
     }
 
+    private fun stopFrequency() {
+        if (isPlaying) {
+            audioTrack?.stop()
+            audioTrack?.release()
+            isPlaying = false
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        audioTrack?.stop()
-        audioTrack?.release()
+        stopFrequency()
     }
 }

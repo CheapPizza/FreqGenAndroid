@@ -23,12 +23,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:layout_below="@id/playButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
     <TextView
         android:id="@+id/frequencyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Current Frequency: 440 Hz"
-        android:layout_below="@id/playButton"
+        android:layout_below="@id/stopButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"/>
 </RelativeLayout>
