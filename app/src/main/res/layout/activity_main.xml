@@ -28,6 +28,36 @@
             android:text="Pause"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/waveSelectContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/frequencyTextView"
+        android:layout_marginTop="200dp">
+
+        <Button
+            android:id="@+id/sineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sine"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/squareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Square"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/sawButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sawtooth"/>
+    </LinearLayout>
+
     <EditText
         android:id="@+id/frequencyEditText"
         android:layout_width="wrap_content"
