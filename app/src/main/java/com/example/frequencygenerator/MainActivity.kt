@@ -78,15 +78,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        sineButton.setOnClickListener {
-            waveformSelection("sine")
-        }
-        squareButton.setOnClickListener {
-            waveformSelection("square")
-        }
-        sawButton.setOnClickListener {
-            waveformSelection("saw")
-        }
+        // TODO: Figure out why other waveforms don't work. See updateSample function
+        //sineButton.setOnClickListener {
+        //    waveformSelection("sine")
+        //}
+        //squareButton.setOnClickListener {
+        //    waveformSelection("square")
+        //}
+        //sawButton.setOnClickListener {
+        //    waveformSelection("saw")
+        //}
     }
 
     private fun waveformSelection(selection: String) {
@@ -120,13 +121,14 @@ class MainActivity : AppCompatActivity() {
     private fun updateSample(frequency: Int) {
         for (i in samples.indices) {
             val t = i / sampleRate.toDouble()
+            // Create the waveform
+            // TODO: Currently the sawtooth and square waves don't work as intended and are disabled.
             samples[i] = when (selectedWaveform) {
                 "sine" -> (sin(2.0 * Math.PI * frequency * t) * Short.MAX_VALUE).toInt().toShort()
                 "sawtooth" -> ((2.0 * (t * frequency - floor(t * frequency + 0.5))) * Short.MAX_VALUE).toInt().toShort()
                 "square" -> (sign(sin(2.0 * Math.PI * frequency * t)) * Short.MAX_VALUE).toInt().toShort()
                 else -> 0
             }
-
         }
         currentFrequency = frequency
     }

@@ -96,4 +96,14 @@
         android:layout_marginTop="20dp"
         android:text="Plays a sound for 60 seconds or until stopped."
         android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/sawtoothInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Select a waveform:"
+        android:visibility="visible" />
 </RelativeLayout>
