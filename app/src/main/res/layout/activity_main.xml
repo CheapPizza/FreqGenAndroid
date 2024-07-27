@@ -104,6 +104,6 @@
         android:layout_below="@id/infoTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Select a waveform:"
+        android:text="Waveform selection not implemented"
         android:visibility="visible" />
 </RelativeLayout>
