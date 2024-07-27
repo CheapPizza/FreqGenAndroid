@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var resetButton: Button
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
+    private var maxFrequency = 20000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         playButton.setOnClickListener {
             val frequency = frequencyEditText.text.toString().toIntOrNull()
-            if (frequency != null && frequency in 1..20000) {
+            if (frequency != null && frequency in 1..maxFrequency) {
                 frequencyTextView.text = "Current Frequency: $frequency Hz"
                 playFrequency(frequency)
             } else {
