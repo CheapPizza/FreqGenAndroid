@@ -9,30 +9,34 @@
         android:id="@+id/frequencyEditText"
         android:layout_width="wrap_content"
         android:layout_height="66dp"
-        android:layout_centerInParent="true"
+        android:layout_below="@id/frequencyTextView"
         android:hint="Enter Frequency (Hz)"
+        android:layout_centerHorizontal="true"
         android:inputType="number"
         android:visibility="visible" />
 
-    <Button
-        android:id="@+id/playButton"
+    <LinearLayout
+        android:id="@+id/buttonsContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/frequencyEditText"
+        android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Play"
-        android:visibility="visible" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp">
 
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/playButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Stop"
-        android:visibility="visible" />
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/resetButton"
@@ -48,7 +52,7 @@
         android:id="@+id/frequencyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/stopButton"
+        android:layout_below="@id/buttonsContainer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="Enter a frequency to start"

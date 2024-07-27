@@ -4,7 +4,6 @@ import android.media.AudioAttributes
 import android.media.AudioFormat
 import android.media.AudioTrack
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -20,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var resetButton: Button
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
-    private val TAG = "FrequencyGenerator"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity() {
                 frequencyTextView.text = "Current Frequency: $frequency Hz"
                 playFrequency(frequency)
             } else {
-                Log.d(TAG, "Invalid frequency input")
                 frequencyTextView.text = "Invalid frequency. Enter a value between 1 and 20000 Hz."
             }
         }
@@ -84,11 +81,9 @@ class MainActivity : AppCompatActivity() {
             .setBufferSizeInBytes(samples.size * 2)
             .build()
 
-        val writeResult = audioTrack?.write(samples, 0, samples.size) ?: -1
-        Log.d(TAG, "AudioTrack write result: $writeResult")
+        audioTrack?.write(samples, 0, samples.size) ?: -1
         audioTrack?.setVolume(AudioTrack.getMaxVolume())
         audioTrack?.play()
-        Log.d(TAG, "Playing frequency: $frequency Hz")
 
         isPlaying = true
     }
