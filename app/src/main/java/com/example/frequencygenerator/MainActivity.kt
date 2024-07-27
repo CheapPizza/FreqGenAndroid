@@ -23,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sineButton: Button
     private lateinit var squareButton: Button
     private lateinit var sawButton: Button
+
+    private var activeButtonColor = Color.parseColor("#ff6cff41")
+    private var inactiveButtonColor = Color.parseColor("#ffc9ffb9")
+
     private var currentFrequency = 0
     private var audioTrack: AudioTrack? = null
     private var isPlaying = false
@@ -44,11 +48,11 @@ class MainActivity : AppCompatActivity() {
         stopButton = findViewById(R.id.stopButton)
         resetButton = findViewById(R.id.resetButton)
         sineButton = findViewById(R.id.sineButton)
-        sineButton.setBackgroundColor(Color.RED)
+        sineButton.setBackgroundColor(activeButtonColor)
         squareButton = findViewById(R.id.squareButton)
-        squareButton.setBackgroundColor(Color.BLUE)
+        squareButton.setBackgroundColor(inactiveButtonColor)
         sawButton = findViewById(R.id.sawButton)
-        sawButton.setBackgroundColor(Color.BLUE)
+        sawButton.setBackgroundColor(inactiveButtonColor)
 
         playButton.setOnClickListener {
             val frequency = frequencyEditText.text.toString().toIntOrNull()
@@ -86,22 +90,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun waveformSelection(selection: String) {
+        if (selection == selectedWaveform) {
+            return
+        }
         selectedWaveform = selection
         when (selection) {
             "sine" -> {
-                sineButton.setBackgroundColor(Color.RED)
-                squareButton.setBackgroundColor(Color.BLUE)
-                sawButton.setBackgroundColor(Color.BLUE)
+                sineButton.setBackgroundColor(activeButtonColor)
+                squareButton.setBackgroundColor(inactiveButtonColor)
+                sawButton.setBackgroundColor(inactiveButtonColor)
             }
             "square" -> {
-                sineButton.setBackgroundColor(Color.BLUE)
-                squareButton.setBackgroundColor(Color.RED)
-                sawButton.setBackgroundColor(Color.BLUE)
+                sineButton.setBackgroundColor(inactiveButtonColor)
+                squareButton.setBackgroundColor(activeButtonColor)
+                sawButton.setBackgroundColor(inactiveButtonColor)
             }
             "saw" -> {
-                sineButton.setBackgroundColor(Color.BLUE)
-                squareButton.setBackgroundColor(Color.BLUE)
-                sawButton.setBackgroundColor(Color.RED)
+                sineButton.setBackgroundColor(inactiveButtonColor)
+                squareButton.setBackgroundColor(inactiveButtonColor)
+                sawButton.setBackgroundColor(activeButtonColor)
             }
         }
         updateSample(currentFrequency)
