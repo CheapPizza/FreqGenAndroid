@@ -8,7 +8,7 @@ This is my first android app so expect spaghetti code.
 
 ## Features
 
-- Currently only sine wave is working.
+- Generates a sine wave that should be as loud as possible
 - Adjustable frequency from 1Hz to 20kHz
 - Lightweight
 
