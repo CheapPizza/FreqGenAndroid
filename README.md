@@ -11,7 +11,7 @@ Changing the duration value increases the audio buffer lenght and will cause the
 
 This is my first android app so expect spaghetti code.  
 
-![app screenshot](https://github.com/CheapPizza/FreqGenAndroid/blob/main/screenshots/freq_app_screenshot.jpgraw=true)
+![app screenshot](https://github.com/CheapPizza/FreqGenAndroid/blob/main/screenshots/freq_app_screenshot.jpg?raw=true)
 
 ## Features
 
